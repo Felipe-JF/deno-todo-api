@@ -1,4 +1,4 @@
-import { InMemoryTodoRepository } from "../InMemoryTodoRepository.ts";
+import { InMemoryTodoRepository } from "./InMemoryTodoRepository.ts";
 import { assertEquals } from "https://deno.land/std@0.142.0/testing/asserts.ts";
 
 Deno.test("Should create a todo", async () => {

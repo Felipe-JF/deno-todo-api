@@ -1,4 +1,4 @@
-import { Todo } from "../models/Todo.ts";
+import { Todo } from "../../models/Todo.ts";
 
 export interface ITodoRepository {
   insert(todo: Omit<Todo, "id">): Promise<Todo | undefined>;
