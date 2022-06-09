@@ -3,6 +3,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "useUnknownInCatchVariables": true
-  },
-  "importMap": "import_map.json"
+  }
 }
