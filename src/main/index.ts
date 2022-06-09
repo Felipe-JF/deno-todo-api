@@ -5,6 +5,7 @@ import { ReadAllTodosService } from "../usecases/get-all-todos/ReadAllTodos.serv
 import { InMemoryTodoRepository } from "../repositories/implementations/InMemoryTodoRepository.ts";
 function useTodosControler() {
   const repository = new InMemoryTodoRepository();
+  repository.insert({ description: "teste" });
   const findAllTodosController = new OakHttpAdapter(
     new ReadAllTodosController(new ReadAllTodosService(repository)),
   );
@@ -14,18 +15,14 @@ export async function main() {
   const { findAllTodosController } = useTodosControler();
   const app = new Application();
   const router = new Router({ prefix: "/todos" });
-  router.get("/:id", (ctx) => {
-    ctx.params.id;
-  });
 
   router.get("/", (ctx) => {
-    //findAllTodosController.handle(ctx);
+    //ctx.response.body = "Hello todos";
+    return findAllTodosController.handle(ctx as any);
   });
 
-  app.use((ctx) => {
-    ctx.response.body = "Hello World!";
-  });
-
+  app.use(router.allowedMethods());
+  app.use(router.routes());
   app.addEventListener("listen", () => {
     console.log("Listening on Port 8000");
   });
