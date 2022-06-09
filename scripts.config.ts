@@ -4,7 +4,8 @@ const config: DenonConfig = {
   scripts: {
     start: {
       cmd: "deno run ./src/index.ts",
-      desc: "Run the VM",
+      desc: "Run todo app",
+      allow: ["net"],
     },
     test: {
       cmd: "deno test ./src",
