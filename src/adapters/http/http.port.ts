@@ -12,10 +12,8 @@ export type HttpResponse =
 abstract class IHttpResponse {
   abstract readonly status: number;
 }
-export abstract class IFailureHttpResponse
-  extends Error
-  implements IHttpResponse
-{
+export abstract class IFailureHttpResponse extends Error
+  implements IHttpResponse {
   abstract readonly status: number;
 }
 
