@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "useUnknownInCatchVariables": true
   },
-  "importMap": "importmap.json"
+  "importMap": "import_map.json"
 }
