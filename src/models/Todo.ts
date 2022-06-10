@@ -1,4 +1,4 @@
-export type Todo = Readonly<{
-  id: string;
-  description: string;
-}>;
+export class Todo {
+  constructor(readonly id: string, readonly description: string) {}
+}
+export type Todos = readonly Todo[];
