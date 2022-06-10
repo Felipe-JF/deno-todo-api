@@ -1,4 +1,4 @@
-import { Todo, Todos } from "../../../models/Todo.ts";
+import { Todo } from "../../../models/Todo.ts";
 import { ITodoRepository } from "../ITodoRepository.ts";
 
 export class InMemoryTodoRepository implements ITodoRepository {

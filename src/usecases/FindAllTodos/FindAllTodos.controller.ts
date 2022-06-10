@@ -13,5 +13,5 @@ export const FindAllTodosController = (
       return;
     }
 
-    response.body = todos;
+    response.body = Array.from(todos);
   };
