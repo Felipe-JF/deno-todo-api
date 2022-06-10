@@ -4,4 +4,5 @@ export interface ITodoRepository {
   insert(todo: Omit<Todo, "id">): Promise<Todo | undefined>;
   delete(id: Todo["id"]): Promise<boolean>;
   findAll(): Promise<Iterable<Todo>>;
+  read(id: Todo["id"]): Promise<Todo | undefined>;
 }

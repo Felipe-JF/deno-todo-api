@@ -1,11 +1,11 @@
-import { FindAllTodosController } from "./FindAllTodos.controller.ts";
+import { FindAllTodosMiddleware } from "./FindAllTodos.middleware.ts";
 import { FindAllTodosService } from "./FindAllTodos.service.ts";
-import { useInMemoryTodoRepository } from "../../repositories/TodoRepository/index.ts";
+import { useTodoRepository } from "../../repositories/TodoRepository/index.ts";
 
-const inMemoryTodoRepository = useInMemoryTodoRepository();
+const inMemoryTodoRepository = useTodoRepository();
 const findAllTodosService = FindAllTodosService(inMemoryTodoRepository);
-const findAllTodosController = FindAllTodosController(findAllTodosService);
+const findAllTodosMiddleware = FindAllTodosMiddleware(findAllTodosService);
 
-export function useFindAllTodosController() {
-  return findAllTodosController;
+export function useFindAllTodosMiddleware() {
+  return findAllTodosMiddleware;
 }

@@ -4,7 +4,7 @@ import { Result } from "../../shared/Result.ts";
 import { InsertTodoRequestDTO } from "./InsertTodo.dto.ts";
 
 export enum InsertTodoServiceError {
-  RepositoryError = "RepositoryError",
+  RepositoryInsertError,
 }
 
 export type InsertTodoService = (
@@ -16,7 +16,7 @@ export function InsertTodoService(todos: ITodoRepository): InsertTodoService {
     const todo = await todos.insert(requestDTO);
 
     if (!todo) {
-      return Result.fail(InsertTodoServiceError.RepositoryError);
+      return Result.fail(InsertTodoServiceError.RepositoryInsertError);
     }
 
     return Result.done(todo);

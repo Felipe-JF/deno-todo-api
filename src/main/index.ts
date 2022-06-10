@@ -1,18 +1,12 @@
-import { Application, Router } from "../deps.ts";
-import { useTodosRoute } from "../routes/TodosRoute/index.ts";
-
-function TodosRouter() {
-  const router = new Router({ prefix: "/" });
-  const todoRoute = useTodosRoute();
-  return todoRoute(router);
-}
+import { Application } from "../deps.ts";
+import { useTodosRouter } from "../routers/TodosRouter/index.ts";
 
 export async function main() {
   const app = new Application();
-  const router = TodosRouter();
+  const todoRouter = useTodosRouter();
 
-  app.use(router.allowedMethods());
-  app.use(router.routes());
+  app.use(todoRouter.routes());
+  app.use(todoRouter.allowedMethods());
 
   app.addEventListener("listen", () => {
     console.log("Listening on Port 8000");

@@ -6,7 +6,7 @@ import {
 } from "./DeleteTodo.dto.ts";
 
 export enum DeleteTodoServiceError {
-  FailedToDeleteTodo,
+  TodoNotFound,
 }
 
 export type DeleteTodoService = (
@@ -20,7 +20,7 @@ export function DeleteTodoService(
     const isDeleted = await todoRepository.delete(requestDTO.id);
 
     if (!isDeleted) {
-      return Result.fail(DeleteTodoServiceError.FailedToDeleteTodo);
+      return Result.fail(DeleteTodoServiceError.TodoNotFound);
     }
 
     return Result.done(undefined);

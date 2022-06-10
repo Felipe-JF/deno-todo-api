@@ -1,7 +1,9 @@
 import { InMemoryTodoRepository } from "./InMemoryTodoRepository/InMemoryTodoRepository.ts";
 
 const inMemoryTodoRepository = new InMemoryTodoRepository();
-inMemoryTodoRepository.insert({ description: "some" });
-export function useInMemoryTodoRepository() {
+
+inMemoryTodoRepository.insert({ description: "For testing purporses!" });
+
+export function useTodoRepository() {
   return inMemoryTodoRepository;
 }

@@ -3,7 +3,7 @@ import { Result } from "../../shared/Result.ts";
 import { FindAllTodosResponseDTO } from "./FindAllTodos.dto.ts";
 
 export type FindAllTodosService = () => Promise<
-  Result<FindAllTodosResponseDTO, Error>
+  Result<FindAllTodosResponseDTO, never>
 >;
 
 export function FindAllTodosService(
@@ -11,6 +11,7 @@ export function FindAllTodosService(
 ): FindAllTodosService {
   return async () => {
     const todos = await todosRepository.findAll();
-    return Result.done(todos);
+
+    return Result.done(Array.from(todos));
   };
 }
