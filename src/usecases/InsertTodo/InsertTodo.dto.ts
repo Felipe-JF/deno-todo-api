@@ -1,4 +1,4 @@
 import { Todo } from "../../models/Todo.ts";
 
-export type CreateTodoRequestDTO = Omit<Todo, "id">;
-export type CreateTodoResponseDTO = Todo;
+export type InsertTodoRequestDTO = Omit<Todo, "id">;
+export type InsertTodoResponseDTO = Todo;

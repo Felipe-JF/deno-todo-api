@@ -1,4 +1,4 @@
-import { CreateTodoRequestDTO } from "./InsertTodo.dto.ts";
+import { InsertTodoRequestDTO } from "./InsertTodo.dto.ts";
 import { InsertTodoService } from "./InsertTodo.service.ts";
 import {
   InMemoryTodoRepository,
@@ -9,12 +9,13 @@ import {
 } from "https://deno.land/std@0.142.0/testing/asserts.ts";
 
 Deno.test("Should create a todo", async () => {
-  const todos = new InMemoryTodoRepository();
-  const service = new InsertTodoService(todos);
-  const requestDTO: CreateTodoRequestDTO = {
+  const todosRepository = new InMemoryTodoRepository();
+  const insertTodoService = InsertTodoService(todosRepository);
+
+  const requestDTO: InsertTodoRequestDTO = {
     description: "Teste",
   };
-  const responseDTO = await service.execute(requestDTO);
+  const responseDTO = await insertTodoService(requestDTO);
 
   assertObjectMatch(
     responseDTO,

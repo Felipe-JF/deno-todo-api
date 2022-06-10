@@ -2,8 +2,16 @@ import { RouterMiddleware } from "../../deps.ts";
 import { FindAllTodosService } from "./FindAllTodos.service.ts";
 
 export const FindAllTodosController = (
-  findAllTodosController: FindAllTodosService,
+  findAllTodosService: FindAllTodosService,
 ): RouterMiddleware<"/"> =>
-  ({ response }) => {
-    response.body = [{ description: "Test Todo" }];
+  async ({ response }) => {
+    const { done: todos, fail } = await findAllTodosService();
+
+    if (fail) {
+      response.status = 400;
+      response.body = "Bad Request";
+      return;
+    }
+
+    response.body = todos;
   };

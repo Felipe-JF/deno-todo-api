@@ -24,5 +24,6 @@ Deno.test("Should get all todos", async () => {
     throw new Error("Todo is not created");
   }
   const todos = await repository.findAll();
-  assertEquals(todos.length, 1);
+
+  assertEquals(Array.from(todos).length, 1);
 });

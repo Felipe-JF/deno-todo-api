@@ -1,4 +1,4 @@
 import { Todo, Todos } from "../../models/Todo.ts";
 
-export type ReadAllTodosRequestDTO = void;
-export type ReadAllTodosResponseDTO = Iterable<Todo>;
+export type FindAllTodosRequestDTO = void;
+export type FindAllTodosResponseDTO = Iterable<Todo>;

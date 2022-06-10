@@ -1,11 +1,16 @@
 import { ITodoRepository } from "../../repositories/TodoRepository/ITodoRepository.ts";
 import { Result } from "../../shared/Result.ts";
-import { ReadAllTodosResponseDTO } from "./FindAllTodos.dto.ts";
+import { FindAllTodosResponseDTO } from "./FindAllTodos.dto.ts";
 
-export class FindAllTodosService {
-  constructor(private todosRepository: ITodoRepository) {}
-  async execute(): Promise<Result<ReadAllTodosResponseDTO, Error>> {
-    const todos = await this.todosRepository.findAll();
+export type FindAllTodosService = () => Promise<
+  Result<FindAllTodosResponseDTO, Error>
+>;
+
+export function FindAllTodosService(
+  todosRepository: ITodoRepository,
+): FindAllTodosService {
+  return async () => {
+    const todos = await todosRepository.findAll();
     return Result.done(todos);
-  }
+  };
 }
