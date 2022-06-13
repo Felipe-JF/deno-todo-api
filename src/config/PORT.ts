@@ -1,5 +1,8 @@
 import { dotenvConfig } from "../deps.ts";
-await dotenvConfig({ safe: true, export: true });
+await dotenvConfig({
+  safe: true,
+  export: true,
+});
 
 export const PORT = getPort();
 function getPort() {
