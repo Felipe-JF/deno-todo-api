@@ -5,7 +5,11 @@ const config: DenonConfig = {
     start: {
       cmd: "deno run ./src/index.ts",
       desc: "Run todo app",
-      allow: ["net"],
+      allow: [
+        "net",
+        "read=.env,.env.defaults,.env.example",
+        "env",
+      ],
     },
     test: {
       cmd: "deno test ./src",

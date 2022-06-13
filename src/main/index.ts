@@ -1,5 +1,6 @@
 import { Application } from "../deps.ts";
 import { useTodosRouter } from "../routers/TodosRouter/index.ts";
+import { PORT } from "../config/PORT.ts";
 
 export async function main() {
   const app = new Application();
@@ -8,8 +9,8 @@ export async function main() {
   app.use(todoRouter.routes());
   app.use(todoRouter.allowedMethods());
 
-  app.addEventListener("listen", () => {
-    console.log("Listening on Port 8000");
+  app.addEventListener("listen", ({ port }) => {
+    console.log("Listening on Port:", port);
   });
-  await app.listen({ port: 8000 });
+  await app.listen({ port: PORT });
 }
