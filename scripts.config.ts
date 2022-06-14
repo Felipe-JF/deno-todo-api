@@ -13,6 +13,7 @@ const config: DenonConfig = {
     },
     test: {
       cmd: "deno test ./src",
+      allow: ["net"],
     },
   },
 };

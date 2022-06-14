@@ -1,7 +1,7 @@
 import { Application } from "../deps/oak.ts";
 import { useTodosRouter } from "../routers/TodosRouter/index.ts";
-import { PORT } from "../config/PORT.ts";
 
+import { PORT } from "../config/port.ts";
 export async function main() {
   const app = new Application();
   const todoRouter = useTodosRouter();
