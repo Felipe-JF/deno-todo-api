@@ -4,7 +4,7 @@ import { useDeleteTodoMiddleware } from "../../usecases/DeleteTodo/index.ts";
 import { useInsertTodoMiddleware } from "../../usecases/InsertTodo/index.ts";
 import { useReadTodoMiddleware } from "../../usecases/ReadTodo/index.ts";
 
-export const TodosRouter = (prefix?: string) => {
+export function TodosRouter(prefix?: string) {
   const findAllTodosMiddleware = useFindAllTodosMiddleware();
   const deleteTodoMiddleware = useDeleteTodoMiddleware();
   const insertTodoMiddleware = useInsertTodoMiddleware();
@@ -15,4 +15,4 @@ export const TodosRouter = (prefix?: string) => {
     .get("/", findAllTodosMiddleware)
     .get("/:id", readTodoMiddleware)
     .delete("/:id", deleteTodoMiddleware);
-};
+}

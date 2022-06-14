@@ -4,10 +4,10 @@ import {
   DeleteTodoServiceError,
 } from "./DeleteTodo.service.ts";
 
-export const DeleteTodoMiddleware = (
+export function DeleteTodoMiddleware(
   deleteTodoService: DeleteTodoService,
-): RouterMiddleware<"/:id", { id: string }> =>
-  async ({ response, params }) => {
+): RouterMiddleware<"/:id", { id: string }> {
+  return async ({ response, params }) => {
     const { id } = params;
 
     const { done, fail } = await deleteTodoService({ id });
@@ -22,3 +22,4 @@ export const DeleteTodoMiddleware = (
 
     response.status = 200;
   };
+}

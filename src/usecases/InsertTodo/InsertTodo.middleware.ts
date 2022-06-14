@@ -4,10 +4,10 @@ import {
   InsertTodoServiceError,
 } from "./InsertTodo.service.ts";
 
-export const InsertTodoMiddleware = (
+export function InsertTodoMiddleware(
   insertTodoService: InsertTodoService,
-): RouterMiddleware<"/"> =>
-  async ({ response, request }) => {
+): RouterMiddleware<"/"> {
+  return async ({ response, request }) => {
     const { description } = await request.body({ type: "json" }).value;
 
     if (!description) {
@@ -29,3 +29,4 @@ export const InsertTodoMiddleware = (
     response.status = 201;
     response.body = Todo;
   };
+}

@@ -1,11 +1,12 @@
 import { RouterMiddleware } from "../../deps.ts";
 import { FindAllTodosService } from "./FindAllTodos.service.ts";
 
-export const FindAllTodosMiddleware = (
+export function FindAllTodosMiddleware(
   findAllTodosService: FindAllTodosService,
-): RouterMiddleware<"/"> =>
-  async ({ response }) => {
+): RouterMiddleware<"/"> {
+  return async ({ response }) => {
     const { done: responseDTO, fail } = await findAllTodosService();
 
     response.body = responseDTO;
   };
+}

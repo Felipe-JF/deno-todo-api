@@ -2,6 +2,7 @@
   "compilerOptions": {
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
+    "strict": true
   }
 }

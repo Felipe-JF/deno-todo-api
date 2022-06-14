@@ -1,10 +1,10 @@
 import { RouterMiddleware } from "../../deps.ts";
 import { ReadTodoService, ReadTodoServiceError } from "./ReadTodo.service.ts";
 
-export const ReadTodoMiddleware = (
+export function ReadTodoMiddleware(
   readTodoService: ReadTodoService,
-): RouterMiddleware<"/:id", { id: string }> =>
-  async ({ response, params }) => {
+): RouterMiddleware<"/:id", { id: string }> {
+  return async ({ response, params }) => {
     const { id } = params;
 
     const { done: responseDTO, fail } = await readTodoService({ id });
@@ -21,3 +21,4 @@ export const ReadTodoMiddleware = (
     response.body = responseDTO;
     return;
   };
+}
