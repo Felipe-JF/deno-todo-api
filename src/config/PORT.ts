@@ -1,5 +1,6 @@
-import { dotenvConfig } from "../deps.ts";
-await dotenvConfig({
+import { config } from "../deps/dotenv.ts";
+
+await config({
   safe: true,
   export: true,
 });

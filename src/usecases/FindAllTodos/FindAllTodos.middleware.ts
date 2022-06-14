@@ -1,4 +1,4 @@
-import { RouterMiddleware } from "../../deps.ts";
+import { RouterMiddleware } from "../../deps/oak.ts";
 import { FindAllTodosService } from "./FindAllTodos.service.ts";
 
 export function FindAllTodosMiddleware(

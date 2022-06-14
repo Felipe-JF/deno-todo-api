@@ -1,4 +1,4 @@
-import { Router } from "../../deps.ts";
+import { Router } from "../../deps/oak.ts";
 import { useFindAllTodosMiddleware } from "../../usecases/FindAllTodos/index.ts";
 import { useDeleteTodoMiddleware } from "../../usecases/DeleteTodo/index.ts";
 import { useInsertTodoMiddleware } from "../../usecases/InsertTodo/index.ts";

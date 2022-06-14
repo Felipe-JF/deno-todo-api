@@ -1,4 +1,4 @@
-import { Application } from "../deps.ts";
+import { Application } from "../deps/oak.ts";
 import { useTodosRouter } from "../routers/TodosRouter/index.ts";
 import { PORT } from "../config/PORT.ts";
 

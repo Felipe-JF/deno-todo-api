@@ -1,4 +1,4 @@
-import { RouterMiddleware } from "../../deps.ts";
+import { RouterMiddleware } from "../../deps/oak.ts";
 import { ReadTodoService, ReadTodoServiceError } from "./ReadTodo.service.ts";
 
 export function ReadTodoMiddleware(
